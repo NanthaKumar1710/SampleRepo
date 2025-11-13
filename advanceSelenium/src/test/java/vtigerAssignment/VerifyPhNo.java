@@ -1,0 +1,89 @@
+package vtigerAssignment;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import com.comcast.crm.generic.ObjectRepository.HomePage;
+import com.comcast.crm.generic.ObjectRepository.LoginPage;
+import com.comcast.crm.generic.ObjectRepository.OrganizationPage;
+import com.comcast.crm.generic.fileutility.Excelutility;
+import com.comcast.crm.generic.fileutility.Fileutility;
+import com.comcast.crm.generic.webdriverutility.Javautility;
+import com.comcast.crm.generic.webdriverutility.WebDriverutility;
+
+public class VerifyPhNo {
+
+	public static void main(String[] args) throws IOException {
+		Fileutility flib = new Fileutility();
+		WebDriverutility wlib = new WebDriverutility();
+		Excelutility elib = new Excelutility();
+		Javautility jlib = new Javautility();
+
+		String URL = flib.getDataFromPropertiesFile("url");
+		String USERNAME = flib.getDataFromPropertiesFile("username");
+		String PASSWORD = flib.getDataFromPropertiesFile("password");
+		String PhNo = flib.getDataFromPropertiesFile("phoneno");
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.get(URL);
+
+		if (driver.getTitle().equals("vtiger CRM 5 - Commercial Open Source CRM")) {
+			System.out.println("login page was displayed");
+		} else {
+			System.out.println("login page was not displayed");
+		}
+
+		LoginPage lp = new LoginPage(driver);
+		lp.getLogin(USERNAME, PASSWORD);
+
+		if (driver.getTitle().contains("Admin123@ Administrator1 - Home")) {
+			System.out.println("home page was displayed");
+		} else {
+			System.out.println("home page was not displayed");
+		}
+
+		HomePage hp = new HomePage(driver);
+		hp.getOrganizationLink().click();
+		OrganizationPage op = new OrganizationPage(driver);
+		op.getCreateOrgBtn().click();
+
+		int value = jlib.getRandomNumbers();
+		String OrgName = elib.getStringDataFromExcel("sheet1", 5, 1) + value;
+		op.getNewOrgTxtFld().sendKeys(OrgName);
+
+		WebElement industryBtn = op.getIndustryDD();
+
+		Select sc = new Select(industryBtn);
+		sc.selectByValue("Education");
+		WebElement TypeBtn = op.getTypeDD();
+		Select sc1 = new Select(TypeBtn);
+		sc1.selectByValue("Analyst");
+
+		op.getPhoneTF().sendKeys(PhNo);
+
+		op.getSaveBtn().click();
+
+		String PhNoTF = driver.findElement(By.id("mouseArea_Phone")).getText();
+		if (PhNoTF.equals(PhNo)) {
+			System.out.println("phone number enter to the text field sucessfully");
+		} else {
+			System.out.println("phone number not enter to the text field ");
+		}
+
+		System.out.println(PhNoTF);
+		driver.quit();
+
+	}
+
+}
