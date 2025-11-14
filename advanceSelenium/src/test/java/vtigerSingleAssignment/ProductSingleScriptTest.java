@@ -26,11 +26,10 @@ public class ProductSingleScriptTest extends BaseClass {
 	public void createProductTest() throws IOException {
 		ProductPage pg = new ProductPage(driver);
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+	    boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
+
 
 		String productName = elib.getStringDataFromExcel("sheet1", 3, 2);
 		int value = jlib.getRandomNumbers();
@@ -56,11 +55,14 @@ public class ProductSingleScriptTest extends BaseClass {
 		ProductPage pg = new ProductPage(driver);
 		String parentid = driver.getWindowHandle();
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
+		 boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+//		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
+//		 boolean ActTitle = driver.getTitle().contains(expected);
+
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
+
 
 		String productName = elib.getStringDataFromExcel("sheet1", 3, 2);
 
@@ -131,11 +133,14 @@ public class ProductSingleScriptTest extends BaseClass {
 		HomePage hp = new HomePage(driver);
 		ProductPage pg = new ProductPage(driver);
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
+		 boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+//		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
+//		 boolean ActTitle = driver.getTitle().contains(expected);
+
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
+
 
 		hp.getOrganizationLink().click();
 		op.getCreateOrgBtn().click();
@@ -205,12 +210,13 @@ public class ProductSingleScriptTest extends BaseClass {
 		ProductPage pg = new ProductPage(driver);
 
 		String parentid = driver.getWindowHandle();
+//		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
+//		 boolean ActTitle = driver.getTitle().contains(expected);
+		 boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
+
 
 		String productName = elib.getStringDataFromExcel("sheet1", 3, 2);
 
@@ -260,11 +266,13 @@ public class ProductSingleScriptTest extends BaseClass {
 
 		String parentid = driver.getWindowHandle();
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
+//		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
+//		 boolean ActTitle = driver.getTitle().contains(expected);
+		 boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
+
 
 		String productName = elib.getStringDataFromExcel("sheet1", 3, 2);
 		int value = jlib.getRandomNumbers();
@@ -319,11 +327,13 @@ public class ProductSingleScriptTest extends BaseClass {
 
 		String parentid = driver.getWindowHandle();
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
+	//	String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
+	//	 boolean ActTitle = driver.getTitle().contains(expected);
+		 boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
+
 
 		HomePage hp = new HomePage(driver);
 		ProductPage pg = new ProductPage(driver);

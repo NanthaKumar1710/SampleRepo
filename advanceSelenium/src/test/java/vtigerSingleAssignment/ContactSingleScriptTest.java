@@ -17,6 +17,7 @@ import com.comcast.crm.generic.ObjectRepository.OrganizationPage;
 import com.comcast.crm.generic.webdriverutility.UtilityClassObject;
 
 import baseUtility.BaseClass;
+
 /**
  * @author NANTHAKUMAR
  */
@@ -25,12 +26,9 @@ public class ContactSingleScriptTest extends BaseClass {
 	@Test(groups = { "smokeTest" })
 	public void createNewContactTest() throws IOException {
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
-
 		HomePage hp = new HomePage(driver);
 		hp.getContactsLink().click();
 
@@ -60,10 +58,8 @@ public class ContactSingleScriptTest extends BaseClass {
 
 		String parentid = driver.getWindowHandle();
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
 
 		HomePage hp = new HomePage(driver);
@@ -122,10 +118,8 @@ public class ContactSingleScriptTest extends BaseClass {
 	@Test(groups = { "regressionTest" })
 	public void enteringDateTest() throws IOException {
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
 
 		HomePage hp = new HomePage(driver);

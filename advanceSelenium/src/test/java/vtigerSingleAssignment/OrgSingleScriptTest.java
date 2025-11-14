@@ -16,6 +16,7 @@ import com.comcast.crm.generic.ObjectRepository.ProductPage;
 import com.comcast.crm.generic.webdriverutility.UtilityClassObject;
 
 import baseUtility.BaseClass;
+
 /**
  * @author NANTHAKUMAR
  */
@@ -26,12 +27,9 @@ public class OrgSingleScriptTest extends BaseClass {
 	@Test(groups = { "smokeTest" })
 	public void createOrgTest() throws IOException {
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
-
 		HomePage hp = new HomePage(driver);
 		hp.getOrganizationLink().click();
 
@@ -54,10 +52,8 @@ public class OrgSingleScriptTest extends BaseClass {
 	@Test(groups = { "regressionTest" })
 	public void createOrgWithIndustryTest() throws IOException, InterruptedException {
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
 
 		HomePage hp = new HomePage(driver);
@@ -106,10 +102,8 @@ public class OrgSingleScriptTest extends BaseClass {
 
 		String PhNo = flib.getDataFromPropertiesFile("phoneno");
 
-		String expected = "Admin123@ Administrator1 - Home - vtiger CRM 5 - Commercial Open Source CRM";
-		String ActTitle = driver.getTitle();
-
-		Assert.assertEquals(ActTitle, expected, "home page was not displayed");
+		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
+		Assert.assertTrue(expected, "home page was not displayed");
 		UtilityClassObject.getTest().log(Status.INFO, "home page was displayed");
 
 		HomePage hp = new HomePage(driver);

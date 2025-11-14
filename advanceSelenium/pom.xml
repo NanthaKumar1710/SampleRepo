@@ -12,7 +12,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version> <!-- Use the latest stable version -->
+                <version>3.5.4</version> <!-- Use the latest stable version -->
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>VtigetBatch.xml</suiteXmlFile>
@@ -31,7 +31,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version> <!-- Use the latest stable version -->
+                <version>3.5.4</version> <!-- Use the latest stable version -->
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>/advanceSelenium/suiteFile/reginalRegressionTest.xml</suiteXmlFile>
