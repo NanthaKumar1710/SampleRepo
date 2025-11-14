@@ -25,6 +25,7 @@ import baseUtility.BaseClass;
 public class ContactSingleScriptTest extends BaseClass {
 	@Test(groups = { "smokeTest" })
 	public void createNewContactTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
 
 		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 		Assert.assertTrue(expected, "home page was not displayed");
@@ -55,7 +56,7 @@ public class ContactSingleScriptTest extends BaseClass {
 
 	@Test(groups = { "regressionTest" })
 	public void CreateNewContactWithPreOrgTest() throws InterruptedException, IOException {
-
+        wlib.waitForPageToLoad(driver);
 		String parentid = driver.getWindowHandle();
 
 		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
@@ -117,6 +118,7 @@ public class ContactSingleScriptTest extends BaseClass {
 
 	@Test(groups = { "regressionTest" })
 	public void enteringDateTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
 
 		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 		Assert.assertTrue(expected, "home page was not displayed");

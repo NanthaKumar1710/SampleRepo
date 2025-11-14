@@ -26,6 +26,8 @@ public class OrgSingleScriptTest extends BaseClass {
 
 	@Test(groups = { "smokeTest" })
 	public void createOrgTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
+
 
 		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 		Assert.assertTrue(expected, "home page was not displayed");
@@ -51,6 +53,8 @@ public class OrgSingleScriptTest extends BaseClass {
 
 	@Test(groups = { "regressionTest" })
 	public void createOrgWithIndustryTest() throws IOException, InterruptedException {
+        wlib.waitForPageToLoad(driver);
+
 
 		boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
 		Assert.assertTrue(expected, "home page was not displayed");
@@ -99,6 +103,8 @@ public class OrgSingleScriptTest extends BaseClass {
 
 	@Test(groups = { "regressionTest" })
 	public void verifyPhNoTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
+
 
 		String PhNo = flib.getDataFromPropertiesFile("phoneno");
 

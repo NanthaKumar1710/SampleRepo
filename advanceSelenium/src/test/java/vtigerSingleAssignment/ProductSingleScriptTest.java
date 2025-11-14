@@ -24,6 +24,8 @@ import baseUtility.BaseClass;
 public class ProductSingleScriptTest extends BaseClass {
 	@Test
 	public void createProductTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
+
 		ProductPage pg = new ProductPage(driver);
 
 	    boolean expected = driver.findElement(By.xpath("//a[contains(.,'Home')]")).isDisplayed();
@@ -52,6 +54,8 @@ public class ProductSingleScriptTest extends BaseClass {
 
 	@Test
 	public void changeTheProductAndVendarNameTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
+
 		ProductPage pg = new ProductPage(driver);
 		String parentid = driver.getWindowHandle();
 
@@ -129,6 +133,8 @@ public class ProductSingleScriptTest extends BaseClass {
 
 	@Test
 	public void CreateInvoiceForTheProductTest() throws IOException, InterruptedException {
+        wlib.waitForPageToLoad(driver);
+
 		OrganizationPage op = new OrganizationPage(driver);
 		HomePage hp = new HomePage(driver);
 		ProductPage pg = new ProductPage(driver);
@@ -205,6 +211,8 @@ public class ProductSingleScriptTest extends BaseClass {
 
 	@Test
 	public void createPurchaseOrderTest() throws IOException, InterruptedException {
+        wlib.waitForPageToLoad(driver);
+
 
 		HomePage hp = new HomePage(driver);
 		ProductPage pg = new ProductPage(driver);
@@ -260,6 +268,8 @@ public class ProductSingleScriptTest extends BaseClass {
 
 	@Test
 	public void CreateQuoteForNewlyAddedProductTest() throws IOException {
+        wlib.waitForPageToLoad(driver);
+
 
 		HomePage hp = new HomePage(driver);
 		ProductPage pg = new ProductPage(driver);
@@ -324,6 +334,8 @@ public class ProductSingleScriptTest extends BaseClass {
 
 	@Test
 	public void FilterTheProductAndCreatePurchaseOrderTest() throws IOException, InterruptedException {
+        wlib.waitForPageToLoad(driver);
+
 
 		String parentid = driver.getWindowHandle();
 
